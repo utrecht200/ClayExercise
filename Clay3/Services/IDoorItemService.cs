@@ -10,6 +10,7 @@ namespace Clay3.Services
     public interface IDoorItemService
     {
         Task<DoorItem[]> GetDoorItemsAsync();
+        Task<OpenRecord[]> GetOpenRecordsAsync();
         Task<bool> OpenDoorAsync(ApplicationUser currentUser, Guid door);
     }
 }

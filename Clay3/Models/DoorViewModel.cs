@@ -9,5 +9,7 @@ namespace Clay3.Models
     public class DoorViewModel
     {
         public DoorItem[] doors { get; set; }
+
+        public OpenRecord[] records { get; set; }
     }
 }

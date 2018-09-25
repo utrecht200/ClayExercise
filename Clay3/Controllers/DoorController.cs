@@ -50,11 +50,17 @@ namespace Clay3.Controllers
             }
 
             var _doors = await _doorItemService.GetDoorItemsAsync();
+            var _records = await _doorItemService.GetOpenRecordsAsync();
+
+
 
             var model = new DoorViewModel()
             {
-                doors = _doors
+                doors = _doors,
+                records = _records
             };
+
+       //     model.OpenRecordViewModel.OpenRecords = _records;
 
             return View(model);
         }

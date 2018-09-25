@@ -69,7 +69,11 @@ namespace Clay3.Services
             return Task.FromResult(new[] { item1, item2, item3, item4 });
         }
 
-
+        public Task<OpenRecord[]> GetOpenRecordsAsync()
+        {
+            var records = _context.OpenRecords.ToArray();
+            return Task.FromResult(records);
+        }
 
         public async Task<bool> OpenDoorAsync(ApplicationUser currentUser, Guid door)
         {
