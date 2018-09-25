@@ -1,0 +1,50 @@
+﻿@model Clay3.Models.DoorViewModel
+
+@{
+    ViewData["Title"] = "Open Sesame";
+
+}
+
+
+
+<div class="panel panel-default todo-panel">
+    <div class="panel-heading">@ViewData["Title"]</div>
+    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>Door ID</td>
+                <td>Door Name</td>
+                <td>Status</td>
+                <td></td>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model.doors)
+        {
+            <tr>
+                <td>@item.DoorID</td>
+                <td>@item.DoorName</td>
+                @*<td>@item.Status</td>*@
+                <td>
+                    @*<button name="submit" type="submit" class="open-button" value="submit-true">
+                        Open!
+                    </button>*@
+                    @*<button type="button" onclick="location.href='@Url.Action("Open", "DoorController", new { })'" />*@
+                    @*<form asp-action="OpenDoor" method="POST">
+                        <input type="button" class="open-button" value="Open" >
+                        <input type="hidden" name="door" value="@item.DoorID">
+                    </form>*@
+                    <a href="@Url.Action("OpenDoor","Door", new {door=item.DoorID })"
+                       class="btn btn-primary btn-lg">Open</a>
+                </td>
+            </tr>
+        }
+        <p class="text-success">@ViewBag.StatusMessage</p>
+    </table>
+
+    @*<div class="panel-footer add-door-form">
+        @await Html.PartialAsync("AddDoorPartial.cshtml", new Door())
+    </div>*@
+
+</div>
